@@ -885,7 +885,7 @@ static void ui_draw_measures(UIState *s){
               scene.altitudeUblox = data2.getAltitude();
               scene.gpsAccuracyUblox = data2.getAccuracy();
             }
-            snprintf(name, sizeof(name), "ALTITUDE");
+            snprintf(name, sizeof(name), "고도");
             if (scene.gpsAccuracyUblox != 0.00) {
               float tmp_val;
               tmp_val = scene.altitudeUblox;
@@ -900,25 +900,25 @@ static void ui_draw_measures(UIState *s){
 
           case UIMeasure::BEARING:
             {
-              snprintf(name, sizeof(name), "COMPASS");
+              snprintf(name, sizeof(name), "진행방향");
               if (scene.bearingAccuracy != 180.00) {
                 snprintf(unit, sizeof(unit), "%.0d%s", (int)scene.bearingDeg, "°");
                 if (((scene.bearingDeg >= 337.5) && (scene.bearingDeg <= 360)) || ((scene.bearingDeg >= 0) && (scene.bearingDeg <= 22.5))) {
-                  snprintf(val, sizeof(val), "N");
+                  snprintf(val, sizeof(val), "북향");
                 } else if ((scene.bearingDeg > 22.5) && (scene.bearingDeg < 67.5)) {
-                  snprintf(val, sizeof(val), "NE");
+                  snprintf(val, sizeof(val), "북동향");
                 } else if ((scene.bearingDeg >= 67.5) && (scene.bearingDeg <= 112.5)) {
-                  snprintf(val, sizeof(val), "E");
+                  snprintf(val, sizeof(val), "동향");
                 } else if ((scene.bearingDeg > 112.5) && (scene.bearingDeg < 157.5)) {
-                  snprintf(val, sizeof(val), "SE");
+                  snprintf(val, sizeof(val), "남동향");
                 } else if ((scene.bearingDeg >= 157.5) && (scene.bearingDeg <= 202.5)) {
-                  snprintf(val, sizeof(val), "S");
+                  snprintf(val, sizeof(val), "남향");
                 } else if ((scene.bearingDeg > 202.5) && (scene.bearingDeg < 247.5)) {
-                  snprintf(val, sizeof(val), "SW");
+                  snprintf(val, sizeof(val), "남서향");
                 } else if ((scene.bearingDeg >= 247.5) && (scene.bearingDeg <= 292.5)) {
-                  snprintf(val, sizeof(val), "W");
+                  snprintf(val, sizeof(val), "서향");
                 } else if ((scene.bearingDeg > 292.5) && (scene.bearingDeg < 337.5)) {
-                  snprintf(val, sizeof(val), "NW");
+                  snprintf(val, sizeof(val), "북서향");
                 }
               } else {
                 snprintf(val, sizeof(val), "OFF");
@@ -1438,7 +1438,7 @@ static void ui_draw_measures(UIState *s){
             
           case UIMeasure::COOLANT_TEMPC: 
             {
-              snprintf(name, sizeof(name), "COOLANT");
+              snprintf(name, sizeof(name), "냉각수온");
               snprintf(unit, sizeof(unit), "%sC", deg);
               int temp = scene.car_state.getEngineCoolantTemp();
               snprintf(val, sizeof(val), "%d", temp);
@@ -1861,9 +1861,9 @@ static void ui_draw_measures(UIState *s){
             
           case UIMeasure::LANE_WIDTH: 
             {
-              snprintf(name, sizeof(name), "LANE WIDE");
+              snprintf(name, sizeof(name), "차선폭");
               snprintf(unit, sizeof(unit), "m");
-              snprintf(val, sizeof(val), "%f.1", scene.lateralPlan.laneWidth);
+              snprintf(val, sizeof(val), "%.1f", scene.lateralPlan.laneWidth);
             }
             break;
 

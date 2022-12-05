@@ -91,8 +91,8 @@ def manager_init():
     ("DisableOnroadUploads", "0"),
     ("LowOverheadMode", "0"),
     ("FPVolt", "0"),
-    ("MeasureConfigNum", "0"),
-    ("MeasureSlot00", "51"), # CPU점유율과 온도 °C
+    ("MeasureConfigNum", "5"),
+    ("MeasureSlot00", "51"), # CPU온도와 점유율
     ("MeasureSlot01", "1"), # 핸들:경로 비교각
     ("MeasureSlot02", "5"), # 엔진RPM + 온도
     ("MeasureSlot03", "7"), # 냉각수온도
@@ -101,7 +101,7 @@ def manager_init():
     ("MeasureSlot06", "10"), # 횡가속도
     ("MeasureSlot07", "21"), # 고도
     ("MeasureSlot08", "22"), # 위도
-    ("MeasureSlot09", "33"), # 차간거리, 안전거리
+    ("MeasureSlot09", "31"), # 차간거리
   ]
   if not PC:
     default_params.append(("LastUpdateTime", datetime.datetime.utcnow().isoformat().encode('utf8')))
